@@ -53,7 +53,7 @@ def load_data(sheets_url):
     return pd.read_csv(csv_url)
 
 # Function to call OpenAI
-def whole_openai_call(FormattedPrompt, model="gpt-4", temperature=1):
+def whole_openai_call(FormattedPrompt, model="gpt-4-1106-preview", temperature=1):
     try:
         start_time = time.time()  # Start the timer
 
@@ -225,7 +225,7 @@ selected_prompt_type = df[df["Prompt_ID"] == selected_question]["Prompt Type"].i
 
 # Parameters
 st.subheader("Parameters")
-model = st.selectbox("Model", ["gpt-3.5-turbo", "gpt-4"], index=1)
+model = st.selectbox("Model", ["gpt-3.5-turbo", "gpt-4", "gpt-4-1106-preview"], index=1)
 temperature = st.slider("Temperature", min_value=0.0, max_value=2.0, step=0.01, value=0.5)
 
 # Additional Input Parameters
